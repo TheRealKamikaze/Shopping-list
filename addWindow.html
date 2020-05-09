@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="shoppingItem">Enter Item:</label>
+        <input id="item" type="text" name="shoppingItem" autofocus>
+      </div>
+      <input type="Submit" id="submit" name="submit" value="submit">
+    </form>
+    <script>
+      const electron = require('electron');
+      const {ipcRenderer} = electron;
+      let form  = document.querySelector('form')
+      form.addEventListener('submit',(e)=>{
+        let item = document.getElementById('item').value;
+        e.preventDefault();
+        ipcRenderer.send('item:add',item);
+      })
+    </script>
+  </body>
+</html>

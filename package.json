@@ -1,0 +1,14 @@
+{
+  "name": "electron-tut",
+  "version": "1.0.0",
+  "description": "shopping List",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Tarun Lohana",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.2.5"
+  }
+}

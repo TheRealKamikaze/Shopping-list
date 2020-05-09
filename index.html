@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning Electron</title>
+  </head>
+  <body>
+    <h1>This is electron App</h1>
+    <ul>
+
+    </ul>
+  </body>
+  <script type="text/javascript">
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    let list = document.querySelector('ul');
+
+    ipcRenderer.on('item:add',(event,item)=>{
+      console.log(2345)
+      let li = document.createElement('li');
+      const itemText = document.createTextNode(item);
+      li.appendChild(itemText);
+      li.addEventListener('dblclick',()=>{
+        console.log('abc')
+        li.remove();
+      })
+      list.appendChild(li);
+    })
+
+    ipcRenderer.on('item:clear',(event)=>{
+      list.innerHTML=""
+    })
+
+  </script>
+</html>
